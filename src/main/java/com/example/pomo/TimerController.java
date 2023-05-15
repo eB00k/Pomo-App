@@ -11,13 +11,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TimerController {
     @FXML private VBox container;
     @FXML private Label clockLabel;
+    @FXML private Label treeAmount;
     @FXML private ProgressBar clockProgressBar;
     @FXML private Button toggleBtn;
     @FXML private Button pomodoroBtn;
@@ -28,10 +29,13 @@ public class TimerController {
     private PomodoroClock clock;
     private Map<Button, TimeMode> buttonToMode;
 
+    private static int treeCount;
+
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
         clock = new PomodoroClock(this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
+        setPoint();
         initializeButtonToMode();
     }
 
@@ -106,6 +110,7 @@ public class TimerController {
 
     public void timeIsUp() {
         addTimeIsUpStyles();
+        addTree();
         playSound();
         updateToggleBtn("RESET");
     }
@@ -125,5 +130,19 @@ public class TimerController {
     public void settingsIconClicked() throws IOException {
         stop();
         App.setRoot("settings");
+    }
+
+    public void addTree() {
+        treeCount++;
+        treeAmount.setText(String.valueOf(treeCount));
+    }
+
+    public void setPoint() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\dastan.akatov\\Downloads\\pomodoro-javafx-master\\Pomo\\src\\main\\resources\\DB\\output.txt"));
+        writer.write(String.valueOf(11));
+        writer.close();
+
+//        BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
+//        System.out.println(reader.readLine());
     }
 }

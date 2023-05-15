@@ -12,10 +12,16 @@
     -fx-background-color: #645CAA;
 }
 
+/*.button {*/
+/*    -fx-cursor: hand;*/
+/*    -fx-background-insets: 0;*/
+/*}*/
 .button {
     -fx-cursor: hand;
     -fx-background-insets: 0;
+
 }
+
 
 .mode-btn {
     -fx-background-color: none;
@@ -24,23 +30,23 @@
 }
 
 .highlight-btn {
-    -fx-border-width: 1px;
-    -fx-border-color: #ffffff;
-    -fx-border-style: dashed;
     -fx-border-radius: 2px;
+    -fx-background-color: #08080830;
 }
 
 .toggle-btn,
 .save-btn {
     -fx-font-size: 18px;
+    -fx-font-weight: bold;
     -fx-background-color: #ffffff;
     -fx-text-fill: #645CAA;
     -fx-border-radius: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 0, 24, 0, 5);
 }
 
 .toggle-btn:hover,
 .save-btn:hover {
-    -fx-opacity: 0.8;
+    -fx-opacity: 0.95;
 }
 
 .clock-progress-bar .track {
@@ -69,4 +75,9 @@
 .spinner .text-field {
     -fx-text-fill: #000000;
     -fx-alignment: center;
+}
+
+.tree-amount {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
 }
