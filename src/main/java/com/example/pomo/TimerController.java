@@ -30,12 +30,13 @@ public class TimerController {
     private Map<Button, TimeMode> buttonToMode;
 
     private static int treeCount;
+    private static TimeMode currentMode = TimeMode.POMODORO;
 
     @FXML
     public void initialize() throws IOException {
         clock = new PomodoroClock(this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
-        setPoint();
+        setTree();
         initializeButtonToMode();
     }
 
@@ -44,6 +45,7 @@ public class TimerController {
         buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
         buttonToMode.put(shortBreakBtn, TimeMode.SHORT_BREAK);
         buttonToMode.put(longBreakBtn, TimeMode.LONG_BREAK);
+        System.out.println("Time Mode: " + TimeMode.POMODORO);
     }
 
     public void toggleBtnClicked() {
@@ -91,10 +93,11 @@ public class TimerController {
     }
 
     private void changeMode(TimeMode mode) {
+        currentMode = mode;
         countdown.setMode(mode);
         clock.setMode(mode);
         removeTimeIsUpStyles();
-        start();
+//        start();
     }
 
     private void highlightModeButton(Button button) {
@@ -108,9 +111,9 @@ public class TimerController {
         longBreakBtn.getStyleClass().remove("highlight-btn");
     }
 
-    public void timeIsUp() {
+    public void timeIsUp() throws IOException {
         addTimeIsUpStyles();
-        addTree();
+        if(currentMode == TimeMode.POMODORO) addTree();
         playSound();
         updateToggleBtn("RESET");
     }
@@ -132,17 +135,19 @@ public class TimerController {
         App.setRoot("settings");
     }
 
-    public void addTree() {
+    public void addTree() throws IOException {
         treeCount++;
         treeAmount.setText(String.valueOf(treeCount));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\dastan.akatov\\Downloads\\pomodoro-javafx-master\\Pomo\\src\\main\\resources\\DB\\output.txt"));
+        writer.write(String.valueOf(treeCount));
+        writer.close();
     }
 
-    public void setPoint() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\dastan.akatov\\Downloads\\pomodoro-javafx-master\\Pomo\\src\\main\\resources\\DB\\output.txt"));
-        writer.write(String.valueOf(11));
-        writer.close();
-
-//        BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
-//        System.out.println(reader.readLine());
+    public void setTree() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\dastan.akatov\\Downloads\\pomodoro-javafx-master\\Pomo\\src\\main\\resources\\DB\\output.txt"));
+        int number = Integer.parseInt(reader.readLine().trim());
+        reader.close();
+        treeCount = number;
+        treeAmount.setText(String.valueOf(treeCount));
     }
 }

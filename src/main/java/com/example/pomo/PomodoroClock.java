@@ -6,6 +6,8 @@ import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
+import java.io.IOException;
+
 /*
  * Observers CountDown instance
  * Takes care of displaying progress
@@ -37,7 +39,13 @@ class PomodoroClock implements CountDownObserver {
 
     @Override
     public void timeIsUp() {
-        Platform.runLater(controller::timeIsUp);
+        Platform.runLater(() -> {
+            try {
+                controller.timeIsUp();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     private String secondsToString(int seconds) {
