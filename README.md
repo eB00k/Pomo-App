@@ -1,1 +1,1 @@
-# Pomo-App
+# Pomo-App (final project in Java)
