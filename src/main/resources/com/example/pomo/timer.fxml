@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="357.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomo.TimerController">
+<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="364.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomo.TimerController">
    <children>
       <AnchorPane>
          <children>
@@ -21,9 +21,14 @@
                </image>
             </ImageView>
             <Label fx:id="treeAmount" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="261.0" prefHeight="24.0" prefWidth="60.0" styleClass="tree-amount" text="0" textAlignment="RIGHT" />
-            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="328.0" layoutY="1.0" onMouseClicked="#settingsIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="settings-icon">
+            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="328.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="settings-icon">
                <image>
                   <Image url="@tree.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="52.0" layoutY="1.0" onMouseClicked="#reportsIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="settings-icon">
+               <image>
+                  <Image url="@report-icon.png" />
                </image>
             </ImageView>
          </children>

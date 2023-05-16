@@ -135,6 +135,11 @@ public class TimerController {
         App.setRoot("settings");
     }
 
+    public void reportsIconClicked() throws IOException {
+        stop();
+        App.setRoot("list");
+    }
+
     public void addTree() throws IOException {
         treeCount++;
         treeAmount.setText(String.valueOf(treeCount));
