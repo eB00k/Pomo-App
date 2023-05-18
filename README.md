@@ -1,16 +1,14 @@
 
 # Pomofocus App 🍅 ⏰
-The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.
+The Pomodoro App is a time management tool based on the popular Pomodoro Technique. It helps users improve productivity by dividing work into intervals called "pomodoros," typically lasting 25 minutes, followed by short breaks. This technique was developed by Francesco Cirillo in the late 1980s and gets its name from the tomato-shaped kitchen timer he used as a student.
 
 ✨ Features
-- Start/resume, pause, or restart timer
-- Skip round to move on to the next session/break. If the timer is currently running, then a dialog pops up to confirm the user's decision. Skipping the round counts toward the number of pomodoros.
-- Directly choose a pomodoro, short break, or long break round. If the timer is currently running, then a dialog pops up to confirm the user's decision. This action does not count toward the number of pomodoros.
-- Alarm sound when timer is complete. When a round finishes, the next round is automatically displayed.
-- Displays pomodoro counter and the current task to work on (defaults to first uncompleted task in list)
-- Add a task, including its description and the estimated number of pomodoros needed to complete the task
-- Displays list of tasks with the ability to delete, edit name, or edit number of pomodoros for a selected task.
-- Indicate completion for a task (completed tasks are crossed off)
+- Start/resume timer
+- Directly choose a pomodoro, short break, or long break round.
+- Alarm sound when timer is complete.
+- When a round finishes, the round will be recorded automatically added to the data.
+- Displays list of session in records page with the information of completed date time and length of pomodoro session.
+- By completing the session you can earn tree. (one part should be later developed so that if person earns tree he or she can plant them in their garden)
 
 ⚒️ Technologies Used
 - Java
@@ -22,7 +20,7 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 - Any IDE that supports Java and JavaFX (e.g., IntelliJ IDEA, Eclipse)
 
 🏃‍♂️ Getting Started
-- Clone the repository: git clone https://github.com/your-username/pomodoro-app.git
+- Clone the repository: git clone https://github.com/eB00k/Pomo-App.git
 - Open the project in your preferred IDE.
 - Configure the project to use the JDK and JavaFX SDK.
 - Build the project to ensure all dependencies are resolved.
@@ -35,5 +33,10 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 - Click the "Start" button to begin the first pomodoro session. The timer will start counting down.
 - Focus on your work until the pomodoro session ends. You will receive a notification when it's time to take a break.
 - During the break, you can rest, stretch, or engage in any activity of your choice.
-- After the break, another pomodoro session will automatically start.
 - Repeat the process until you complete your tasks or reach your desired productivity goal.
+
+Things to be improved
+- visulization part of forest garden
+- more statistics about session and progress
+- music options
+- user can add tasks like in to do list 
