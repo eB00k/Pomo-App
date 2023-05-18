@@ -4,9 +4,8 @@ import com.example.pomo.model.CountDown;
 import com.example.pomo.model.TimeMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,12 +20,40 @@ public class ListController {
 
     @FXML private VBox container;
 
+    @FXML
+    private TableView<TableRowData> tableView;
+
+    @FXML
+    private TableColumn<TableRowData, String> lengthOfSessionColumn;
+
+    @FXML
+    private TableColumn<TableRowData, String> currentDateTimeColumn;
+
+    @FXML
+    private TableColumn<TableRowData, String> statusColumn;
+
     @FXML private Label treeAmount;
     private static int treeCount;
 
-    @FXML
     public void initialize() throws IOException {
         setTree();
+        // Initialize the table columns
+        lengthOfSessionColumn.setCellValueFactory(new PropertyValueFactory<>("lengthOfSession"));
+        currentDateTimeColumn.setCellValueFactory(new PropertyValueFactory<>("currentDateTime"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        // Read table data from the file and populate the TableView
+        BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(Settings.filePathTable)));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] values = line.split(",");
+            if (values.length == 3) {
+                String lengthOfSession = values[0];
+                String currentDateTime = values[1];
+                String status = values[2];
+                tableView.getItems().add(new TableRowData(lengthOfSession, currentDateTime, status));
+            }
+        }
     }
 
     public void backIconClicked() throws IOException {

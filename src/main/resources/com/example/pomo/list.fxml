@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="364.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pomo.ListController">
@@ -18,7 +19,7 @@
                </image>
             </ImageView>
             <Label fx:id="treeAmount" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="261.0" prefHeight="24.0" prefWidth="60.0" styleClass="tree-amount" text="0" textAlignment="RIGHT" />
-            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="328.0" layoutY="1.0"  pickOnBounds="true" preserveRatio="true" styleClass="settings-icon">
+            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="328.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" styleClass="settings-icon">
                <image>
                   <Image url="@tree.png" />
                </image>
@@ -26,16 +27,15 @@
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="148.0" layoutY="4.0" prefHeight="17.0" prefWidth="67.0" styleClass="title" text="Reports" />
          </children>
       </AnchorPane>
-      <HBox alignment="BOTTOM_CENTER" prefHeight="51.0" prefWidth="359.0" spacing="5.0" />
-      <HBox alignment="CENTER" prefHeight="159.0" prefWidth="359.0">
-         <children>
-            <VBox alignment="CENTER" prefHeight="159.0" prefWidth="302.0">
-               <children>
-                  <ProgressBar fx:id="clockProgressBar" prefHeight="2.0" prefWidth="290.0" progress="0.0" styleClass="clock-progress-bar" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" />
+      <TableView fx:id="tableView" prefHeight="336.0" prefWidth="341.0" stylesheets="@style.css" styleClass="table-view">
+         <columns>
+            <TableColumn fx:id="lengthOfSessionColumn" text="Duration" prefWidth="100"/>
+            <TableColumn fx:id="currentDateTimeColumn" text="Date" />
+            <TableColumn fx:id="statusColumn" text="Status" />
+         </columns>
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </TableView>
    </children>
 </VBox>

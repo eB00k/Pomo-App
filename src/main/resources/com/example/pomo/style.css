@@ -12,14 +12,9 @@
     -fx-background-color: #645CAA;
 }
 
-/*.button {*/
-/*    -fx-cursor: hand;*/
-/*    -fx-background-insets: 0;*/
-/*}*/
 .button {
     -fx-cursor: hand;
     -fx-background-insets: 0;
-
 }
 
 
@@ -121,3 +116,45 @@
     -fx-font-weight: bold;
     -fx-font-size: 15px;
 }
+
+
+/* Apply styles to the TableView */
+.table-view {
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-background-color: #645CAA;
+    -fx-text-background-color: #ffffff;
+}
+
+.table-cell {
+    -fx-alignment: CENTER;
+}
+
+.table-view .column-header {
+    -fx-background-color: #A29DCC;
+    -fx-text-fill: #645CAA;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #645CAA;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 0 0 1 0; /* Only bottom border */
+}
+
+.table-row-cell:filled:selected .table-cell {
+    -fx-background-color: #D0CEE5;
+    -fx-text-fill: #645CAA;
+}
+
+/*.table-row-cell:filled:selected .table-cell:status-Completed {*/
+/*    -fx-background-color: #8BC34A; !* Green color for Completed *!*/
+/*    -fx-text-fill: #ffffff;*/
+/*}*/
+
+/*.table-row-cell:filled:selected .table-cell:status-Failed {*/
+/*    -fx-background-color: #F44336; !* Red color for Failed *!*/
+/*    -fx-text-fill: #ffffff;*/
+/*}*/
+

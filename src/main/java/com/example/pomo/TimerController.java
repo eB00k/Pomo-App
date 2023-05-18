@@ -12,6 +12,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +31,7 @@ public class TimerController {
     private Map<Button, TimeMode> buttonToMode;
 
     private static int treeCount;
+//    private static String filePathTable = "C:\\Users\\dastan.akatov\\Downloads\\pomodoro-javafx-master\\Pomo\\src\\main\\resources\\DB\\table.txt";
     private static TimeMode currentMode = TimeMode.POMODORO;
 
     @FXML
@@ -113,8 +115,11 @@ public class TimerController {
 
     public void timeIsUp() throws IOException {
         addTimeIsUpStyles();
-        if(currentMode == TimeMode.POMODORO) addTree();
         playSound();
+        if(currentMode == TimeMode.POMODORO) {
+            addTree();
+            addRecord();
+        }
         updateToggleBtn("RESET");
     }
 
@@ -154,5 +159,40 @@ public class TimerController {
         reader.close();
         treeCount = number;
         treeAmount.setText(String.valueOf(treeCount));
+    }
+
+    public void addRecord() throws IOException {
+        String currentDate = CurrentDateTime.getCurrentDate();
+        String lengthOfSession = currentMode.getMinutes() + (currentMode.getMinutes() == 1 ? " min": "mins");
+        writeTableData(lengthOfSession, currentDate, "Completed");
+        readTableData();
+    }
+
+    public void readTableData() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(Settings.filePathTable));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] rowData = line.split(",");
+            String lengthOfSession = rowData[0];
+            String currentDateTime = rowData[1];
+            String status = rowData[2];
+
+            // Process the data as needed
+            System.out.println("Length of Session: " + lengthOfSession);
+            System.out.println("Current DateTime: " + currentDateTime);
+            System.out.println("Status: " + status);
+            System.out.println("----------------------");
+            }
+        reader.close();
+    }
+
+
+    public void writeTableData(String data1, String data2, String data3) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(Settings.filePathTable, true));
+        String line = data1 + "," + data2 + "," + data3;
+        writer.write(line);
+        writer.newLine();
+        System.out.println(line + "\nTable data has been written to the file.");
+        writer.close();
     }
 }

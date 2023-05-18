@@ -38,4 +38,8 @@ public class SettingsController {
         Settings.volume = volumeSlider.getValue();
         App.setRoot("timer");
     }
+
+    public void backIconClicked() throws IOException {
+        App.setRoot("timer");
+    }
 }
