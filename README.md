@@ -2,18 +2,6 @@
 # Pomofocus App 🍅 ⏰
 The Pomodoro App is a time management tool based on the popular Pomodoro Technique. It helps users improve productivity by dividing work into intervals called "pomodoros," typically lasting 25 minutes, followed by short breaks. This technique was developed by Francesco Cirillo in the late 1980s and gets its name from the tomato-shaped kitchen timer he used as a student.
 
-Main Page (Timer)
-![img.png](img.png)
-
-Settings Page
-![img_1.png](img_1.png)
-
-Reports Page
-![img_2.png](img_2.png)
-
-Confirmation Alert Box
-![img_3.png](img_3.png)
-
 ✨ Features
 - Start/resume timer
 - Directly choose a pomodoro, short break, or long break round.
@@ -52,3 +40,19 @@ Things to be improved
 - more statistics about session and progress
 - music options
 - user can add tasks like in to do list 
+
+Main Page (Timer)
+
+![img.png](img.png)
+
+Settings Page
+
+![img_1.png](img_1.png)
+
+Reports Page
+
+![img_2.png](img_2.png)
+
+Confirmation Alert Box
+
+![img_3.png](img_3.png)
