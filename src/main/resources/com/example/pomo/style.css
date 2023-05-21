@@ -60,11 +60,11 @@
 }
 
 .time-is-up-background {
-    -fx-background-color: #0fa4a9;
+    -fx-background-color: #474E68;
 }
 
 .time-is-up-color {
-    -fx-text-fill: #0fa4a9;
+    -fx-text-fill: #474E68;
 }
 
 .settings-icon:hover {

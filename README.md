@@ -2,6 +2,12 @@
 # Pomofocus App 🍅 ⏰
 The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.
 
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
 ✨ Features
 - Start/resume, pause, or restart timer
 - Skip round to move on to the next session/break. If the timer is currently running, then a dialog pops up to confirm the user's decision. Skipping the round counts toward the number of pomodoros.

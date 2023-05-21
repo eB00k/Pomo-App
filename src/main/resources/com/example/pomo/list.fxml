@@ -30,7 +30,7 @@
       <TableView fx:id="tableView" prefHeight="336.0" prefWidth="341.0" stylesheets="@style.css" styleClass="table-view">
          <columns>
             <TableColumn fx:id="lengthOfSessionColumn" text="Duration" prefWidth="100"/>
-            <TableColumn fx:id="currentDateTimeColumn" text="Date" />
+            <TableColumn fx:id="currentDateTimeColumn" text="Date &amp; Time" />
             <TableColumn fx:id="statusColumn" text="Status" />
          </columns>
          <VBox.margin>

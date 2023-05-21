@@ -31,8 +31,7 @@ public class TimerController {
     private Map<Button, TimeMode> buttonToMode;
 
     private static int treeCount;
-//    private static String filePathTable = "C:\\Users\\dastan.akatov\\Downloads\\pomodoro-javafx-master\\Pomo\\src\\main\\resources\\DB\\table.txt";
-    private static TimeMode currentMode = TimeMode.POMODORO;
+   private static TimeMode currentMode = TimeMode.POMODORO;
 
     @FXML
     public void initialize() throws IOException {
@@ -50,16 +49,27 @@ public class TimerController {
         System.out.println("Time Mode: " + TimeMode.POMODORO);
     }
 
-    public void toggleBtnClicked() {
+    public void toggleBtnClicked() throws IOException {
         if (countdown.isRunning())
             stop();
         else
             activate();
     }
 
-    private void stop() {
+    private void stop() throws IOException {
         countdown.stop();
+        if(toggleBtn.getText() == "STOP") {
+            gaveUp();
+        }
         updateToggleBtn("RESUME");
+    }
+
+    private void gaveUp() throws IOException {
+        boolean result = AlertBox.showAlert("Confirmation", "Are you sure to Give Up?");
+        if(result){
+            addRecord(false);
+            reset();
+        };
     }
 
     private void updateToggleBtn(String text) {
@@ -118,7 +128,7 @@ public class TimerController {
         playSound();
         if(currentMode == TimeMode.POMODORO) {
             addTree();
-            addRecord();
+            addRecord(true); // true -> meaning session successfully finished
         }
         updateToggleBtn("RESET");
     }
@@ -161,10 +171,11 @@ public class TimerController {
         treeAmount.setText(String.valueOf(treeCount));
     }
 
-    public void addRecord() throws IOException {
+    public void addRecord(boolean status) throws IOException {
         String currentDate = CurrentDateTime.getCurrentDate();
         String lengthOfSession = currentMode.getMinutes() + (currentMode.getMinutes() == 1 ? " min": "mins");
-        writeTableData(lengthOfSession, currentDate, "Completed");
+        String actionStatus = status? "Completed": "Failed";
+        writeTableData(lengthOfSession, currentDate, actionStatus);
         readTableData();
     }
 
